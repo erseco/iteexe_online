@@ -10,9 +10,7 @@ RUN apt-get update && apt-get -yq install python-m2crypto python-isodate python-
 
 RUN apt-get update && apt-get -yq install python-bs4 python-oauth2client python-googleapi
 
-RUN apt-get update && apt-get -yq install python-passlib 
-
-RUN apt-get update && apt-get -yq install fuseext2
+RUN apt-get update && apt-get -yq install python-passlib
 
 RUN apt-get update && apt-get -yq install python-suds python-requests-oauthlib python-dateutil
 
@@ -36,4 +34,4 @@ RUN mkdir /var/run/exe
 
 WORKDIR /home/app
 
-CMD /run.sh
+CMD ["/run.sh"]
