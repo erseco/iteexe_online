@@ -29,8 +29,9 @@ COPY images/exe/example.crt /usr/local/share/ca-certificates/intef-es-chain.crt
 RUN update-ca-certificates
 
 ADD images/exe/run.sh /run.sh
+RUN chmod +x /run.sh
 
-RUN mkdir /var/run/exe
+RUN mkdir -p /var/run/exe
 
 WORKDIR /home/app
 

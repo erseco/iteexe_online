@@ -95,7 +95,10 @@ class PackageRedirectPage(RenderableResource):
                     multidomainuser=multidomainuser.split("//")[1].replace("/",".").replace(".","_")
                     session.setUser(multidomainuser+"_"+request.args['user'][0])
                 else:
-                    raise Exception('Error: jwt_token not found') 
+                    raise Exception('Error: jwt_token not found')
+        # Auto-login with default user when JWT is disabled and no user provided
+        elif self.integration.enabled_jwt == "0" and not session.user:
+            session.setUser('default')
 
         # No session
         if self.webServer.application.server and not session.user and not request.getUser():

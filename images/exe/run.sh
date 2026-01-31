@@ -1,6 +1,6 @@
 #!/bin/sh
 
-rm exe/config/exe.pid
+rm -f exe/config/exe.pid
 
 umask 0
-exe/exe --standalone --server
+python exe/exe --standalone --server
